@@ -8,4 +8,10 @@ class ProductsTest < ApplicationSystemTestCase
     save_and_open_screenshot
     assert_selector "h1", text: "Awesome Products"
   end
+
+  test "display as many cards in index as in Product db" do
+    visit root_url # "/"
+
+    assert_selector ".card-product", count: Product.count
+  end
 end
