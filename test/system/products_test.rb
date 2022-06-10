@@ -18,14 +18,11 @@ class ProductsTest < ApplicationSystemTestCase
   test "let a signed in user create a new product" do
     login_as users(:george) # Warden Helper function login_as
     visit "/products/new"
-    save_screenshot
 
     fill_in "product_name", with: "Le Wagon"
     fill_in "product_tagline", with: "Change your life: Learn to code"
-    save_screenshot
 
     click_on "Create Product"
-    save_screenshot
 
     assert_text "Change your life: Learn to code"
   end
